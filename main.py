@@ -45,17 +45,6 @@ while True:
         if not ret:
             break
 
-    # Resize the frame
-    # frame_tensor = torch.from_numpy(frame.transpose(2, 0, 1)).float().div(255.0).unsqueeze(0)
-
-    # make predictopns
-    predictions = model.predict(frame, conf=0.5)
-    
-    # boxes = [result.boxes.xyxy.cpu().numpy() for result in predictions]
-    boxes = predictions[0].boxes.xyxy.cpu().numpy()
-
-    # print("boxes:::::::::", boxes)
-    # print("slots:::::::::", slots)
     
     slot_allocations = check_slots_availability(boxes)
    
